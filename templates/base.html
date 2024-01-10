@@ -13,6 +13,32 @@
     <title>Diet planner</title>
 </head>
 <body>
+    <header>
+<!-- top Navbar-->
+  <nav id ="navbar" class ="teal lighten-2">
+    <div class="nav-wrapper">
+      <a href="{{ url_for('get_meals')}}" class="brand-logo">Diet Planner</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger right" aria-label="hamburger side-nav button"><i class="fas fa-bars"></i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="{{ url_for('get_meals')}}">Home</a></li>
+        <li><a href="">Menu</a></li>
+        <li><a href="">Manage</a></li>
+        <li><a href="">Log Out</a></li>
+        <li><a href="">Log In</a></li>
+        <li><a href="">Register</a></li>
+      </ul>
+    </div>
+  </nav>
+<!--Mobile Navbar-->
+  <ul class="sidenav right" id="mobile-demo">
+    <li><a href="{{ url_for('get_meals')}}">Home</a></li>
+    <li><a href="">Menu</a></li>
+    <li><a href="">Manage</a></li>
+    <li><a href="">Log Out</a></li>
+    <li><a href="">Log In</a></li>
+    <li><a href="">Register</a></li>
+  </ul>
+    </header>
 
     {% block content%}
     {% endblock %}
