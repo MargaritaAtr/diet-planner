@@ -8,10 +8,10 @@
 </head>
 <body>
     {% for meal in meals %}
-        {{ meal.meal_name }}<br>
         {{ meal.category_name }}<br>
-        {{ meal.description }}<br>
-        {{ meal.is_urgent }}<br>
+        {{ meal.meal_name }}<br>
+        {{ meal.meal_description }}<br>
+        {{ meal.shopping_required }}<br>
         {{ meal.due_date }}<br>
     {% endfor %}
 </body>
