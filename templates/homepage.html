@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block styles %}
+
+
+    <div class="slider fullscreen responsive-img">
+        <ul class="slides">
+            <li>
+                <img class="responsive-img"
+                    src="{{ url_for('static', filename='images/radish.jpg') }}" alt="the variety of the fruits">
+            </li>
+            <li>
+                <img class="responsive-img"
+                    src="{{ url_for('static', filename='images/pancakes.jpg') }}" alt="pancakes">
+            </li>
+            <li>
+                <img class="responsive-img"
+                    src="{{ url_for('static', filename='images/burger.jpg') }}" alt="">
+            </li>
+            <li>
+                <img class="responsive-img"
+                    src="{{ url_for('static', filename='images/bowl.jpg') }}" alt="">
+            </li>
+        </ul>
+    </div>
+
+    {% endblock %}

@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Bacasime+Antique&family=Bitter:wght@200&family=Playfair+Display&display=swap');
+
+body{   
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family:'Bacasime Antique', serif ;
+    font-size: 20px;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: whitesmoke;
+}
+
+main{
+    flex: 1 0 auto;
+    width: 100%;
+}
+
+nav ul a {
+   color: whitesmoke;
+   font-size: 1.2rem;
+}
+
+.slider{
+    z-index:-1;
+}
