@@ -53,6 +53,7 @@ def register():
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
         
+        
     return render_template("register.html")
 
 
@@ -68,7 +69,8 @@ def login():
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                         session["user"] = request.form.get("username").lower()
-                        flash("Welcome, {}".format(request.form.get("username")))                  
+                        flash("Welcome, {}".format(request.form.get("username")))
+                                         
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -81,6 +83,14 @@ def login():
 
     return render_template("login.html")
 
+
+@app.route("/logout")
+def logout():
+     #clear all session cookies
+     session.clear()
+     return redirect(url_for("home"))
+     
+     
 
 
 if __name__ == "__main__":
