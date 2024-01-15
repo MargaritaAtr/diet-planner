@@ -28,6 +28,11 @@ def get_meals():
     meals = mongo.db.meals.find()
     return render_template("meals.html" , meals=meals)
 
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    return render_template("register.html")
+
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
