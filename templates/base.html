@@ -23,7 +23,7 @@
   <ul class="right hide-on-med-and-down">
     <li><a href="{{ url_for('home')}}">Home</a></li>
     {% if session.user %}
-      <li><a href="">My weekly meals</a></li>
+      <li><a href="{{ url_for('my_meals', username=session['user']) }}">My weekly meals</a></li>
       <li><a href="">Manage</a></li>
       <li><a href="{{ url_for('logout')}}">Log Out</a></li>
     {% else %}
@@ -37,7 +37,7 @@
   <ul class="sidenav right" id="mobile-demo">
     <li><a href="{{ url_for('home')}}">Home</a></li>
     {% if session.user %}
-      <li><a href="">My weekly meals</a></li>
+      <li><a href="{{ url_for('my_meals', username=session['user']) }}">My weekly meals</a></li>
       <li><a href="">Manage</a></li>
       <li><a href="{{ url_for('logout')}}">Log Out</a></li>
     {% else %}
