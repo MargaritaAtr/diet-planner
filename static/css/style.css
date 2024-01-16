@@ -9,9 +9,9 @@ body{
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-color: whitesmoke;
+    background-color: rgb(2, 21, 21);
 }
-
+;
 main{
     flex: 1 0 auto;
     width: 100%;
