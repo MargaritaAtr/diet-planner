@@ -16,7 +16,13 @@
       <!-- meal category selection -->
 <div class="row">
   <div class="input-field col s12">
-              <i class="fas fa-folder-open prefix"></i>
+    <i class="fas fa-folder-open prefix"></i>
+    <select id="category_name" name="category_name" class="validate" required >
+      <option value="" disabled selected></option>
+      {% for category in categories %}
+      <option value="{{category.category_name}}">{{category.category_name}}</option>
+     {% endfor %}
+    </select>
     <label for="category_name">Meal Category</label>
   </div>
 </div>

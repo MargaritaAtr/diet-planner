@@ -23,11 +23,6 @@ mongo = PyMongo(app)
 def home():
     return render_template("homepage.html")
 
-@app.route("/plan_meals")
-def plan_meals():
-    meals = mongo.db.meals.find()
-    return render_template("plan_meals.html" , meals=meals)
-
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -85,13 +80,6 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/logout")
-def logout():
-     #clear all session cookies
-     session.clear()
-     return redirect(url_for("home"))
-
-
 @app.route("/my_meals/<username>", methods=["GET", "POST"])
 def my_meals(username):
     # grab the session user's username from db
@@ -102,8 +90,19 @@ def my_meals(username):
         return render_template("my_meals.html", username=username)
 
     return redirect(url_for("login"))
-     
-     
+
+
+@app.route("/logout")
+def logout():
+     #clear all session cookies
+     session.clear()
+     return redirect(url_for("home"))
+
+
+@app.route("/plan_meals")
+def plan_meals():
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("plan_meals.html", categories=categories)   
 
 
 if __name__ == "__main__":
