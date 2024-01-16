@@ -116,7 +116,7 @@ def plan_meals():
             "is_shopping_required": is_shopping_required,
             "created_by": session["user"]
         }
-        mongo.db.tasks.insert_one(meal)
+        mongo.db.meals.insert_one(meal)
         flash("Meal Successfully added to your weekly plan")
         return redirect(url_for("all_meals"))
 
