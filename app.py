@@ -23,6 +23,11 @@ mongo = PyMongo(app)
 def home():
     return render_template("homepage.html")
 
+@app.route("/all_meals")
+def all_meals():
+    meals= list(mongo.db.meals.find())
+    return render_template("all_meals.html", meals=meals)
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -47,7 +52,7 @@ def register():
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
-        return redirect(url_for("my_meals", username=session["user"]))
+        return redirect(url_for("all_meals", username=session["user"]))
         
     return render_template("register.html")
 
@@ -66,7 +71,7 @@ def login():
                         session["user"] = request.form.get("username").lower()
                         flash("Welcome, {}".format(request.form.get("username")))
                         return redirect(url_for(
-                         "my_meals", username=session["user"]))                
+                         "all_meals", username=session["user"]))                
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -113,7 +118,7 @@ def plan_meals():
         }
         mongo.db.tasks.insert_one(meal)
         flash("Meal Successfully added to your weekly plan")
-        return redirect("my_meals.html")
+        return redirect(url_for("all_meals"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("plan_meals.html", categories=categories)   
