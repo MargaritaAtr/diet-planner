@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<h3 class="center-align white-text">Add New recipe</h3>
+
+<div class="row">
+<form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('add_recipe') }}">
+    <div class="card-panel">
+        <!--Recipe Name-->
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="recipe_name" name="recipe_name" type="text" class="validate" maxlength="50" required />
+                <label for="recipe_name">Recipe Name</label>
+            </div>
+        </div>
+            <!--Recipe Category-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="recipe_category" name="recipe_category" type="text" class="validate" maxlength="50" required />
+                    <label for="recipe_category">Category Name</label>
+                </div> 
+        </div>   
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="recipe_ingredients" name="recipe_ingredients" type="text" class="validate" maxlength="50" required />
+                <label for="recipe_ingredients">Ingredients</label>
+            </div>
+        </div>   
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="recipe_instructions" name="recipe_instructions" type="text" class="validate" maxlength="50" required />
+                <label for="recipe_instructions">Instructions</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="image_url" name="image_url" type="text" class="validate" maxlength="50" required />
+                <label for="image_url">Image Url</label>
+            </div>
+        </div>
+         <!--submit button-->
+         <div class="row">
+            <div class="col s12">
+                <button id="submit-recipe" class="btn waves-effect waves-light full-width green center " type="submit">
+                    Submit Recipe
+                </button>
+            </div>
+         </div>
+    </form>
+
+</div>
+
+
+{% endblock %}
