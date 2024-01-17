@@ -52,7 +52,7 @@ def register():
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
-        return redirect(url_for("all_meals", username=session["user"]))
+        return redirect(url_for("home", username=session["user"]))
         
     return render_template("register.html")
 
@@ -141,7 +141,13 @@ def edit_meal(meal_id):
         
     meal = mongo.db.meals.find_one({"_id": ObjectId(meal_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_meal.html", meal=meal , categories=categories)    
+    return render_template("edit_meal.html", meal=meal , categories=categories)
+
+@app.route("/delete_meal/<meal_id>")
+def delete_meal(meal_id):
+    mongo.db.meals.delete_one({"_id": ObjectId(meal_id)})
+    flash("Meal Deleted")
+    return redirect(url_for("all_meals"))   
 
 
 if __name__ == "__main__":
