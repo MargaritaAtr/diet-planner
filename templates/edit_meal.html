@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="center-align white-text">Edit Meal</h3>
+
+<div class="row card-panel cream lighten-3">
+  <form class="col s12" method="POST" action="{{ url_for('edit_meal', meal_id=meal._id) }}">
+       <!-- due date picker -->
+       <div class="row">
+        <div class="input-field col s12">
+            <i class="fas fa-calendar-alt prefix"></i>
+            <input id="due_date" name="due_date" type="text" class="datepicker validate " required>
+            <label for="due_date">Due Date</label>
+        </div>
+    </div>
+      <!-- meal category selection -->
+<div class="row">
+  <div class="input-field col s12">
+    <i class="fas fa-folder-open prefix"></i>
+    <select id="category_name" name="category_name" class="validate" required >
+      <option value="" disabled selected class="grey"></option>
+      {% for category in categories %}
+      <option value="{{category.category_name}}">{{category.category_name}}</option>
+     {% endfor %}
+    </select>
+    <label for="category_name">Meal Category</label>
+  </div>
+</div>
+      <!-- Meal name -->
+      <div class="row">
+          <div class="input-field col s12">
+              <i class="fas prefix fa-folder"></i>
+              <input id="meal_name" name="meal_name" minlength="5" maxlength="50"
+                  type="text" class="validate" required>
+              <label for="meal_name">Meal Name</label>
+          </div>
+      </div>
+      <!-- meal description -->
+      <div class="row">
+          <div class="input-field col s12">
+              <i class="fas fa-align-left prefix"></i>
+              <textarea id="meal_description" name="meal_description" minlength="5"
+                  maxlength="200" class="materialize-textarea validate" required></textarea>
+              <label for="meal_description">Meal Description</label>
+          </div>
+      </div>
+      <!-- is shopping required -->
+<div class="row">
+  <div class="input-field col s12">
+    <div class="switch">
+                  <i class="fas fa-exclamation-circle-small left prefix"></i>
+      <label for="is_shopping_required">
+                      <input type="checkbox" id="is_shopping_required" name="is_shopping_required">
+                      <span class="lever"></span>
+                      Is Shopping required
+                  </label>
+    </div>
+  </div>
+</div>
+      <!-- submit button -->
+      <div class="row">
+          <div class="col s12 center-align">
+              <button type="submit" class="btn-small grey darken-4 text-shadow">
+                  Edit Meal <i class="fas fa-plus-square right"></i>
+              </button>
+          </div>
+      </div>
+  </form>
+</div>
+
+    {% endblock %}

@@ -25,3 +25,7 @@ nav ul a {
 .slider{
     z-index:-1;
 }
+.btn-small{
+margin: 5px;
+
+}

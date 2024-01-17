@@ -121,7 +121,13 @@ def plan_meals():
         return redirect(url_for("all_meals"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("plan_meals.html", categories=categories)   
+    return render_template("plan_meals.html", categories=categories) 
+
+@app.route("/edit_meal/<meal_id>", methods=["GET","POST"])
+def edit_meal(meal_id):
+    meal = mongo.db.meals.find_one({"_id": ObjectId(meal_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit_meal.html", meal=meal , categories=categories)    
 
 
 if __name__ == "__main__":
