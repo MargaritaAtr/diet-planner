@@ -123,8 +123,22 @@ def plan_meals():
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("plan_meals.html", categories=categories) 
 
+
 @app.route("/edit_meal/<meal_id>", methods=["GET","POST"])
 def edit_meal(meal_id):
+    if request.method == "POST":
+        is_shopping_required = "on" if request.form.get("is_shopping_required") else "off"
+        update = {
+            "due_date": request.form.get("due_date"),
+            "category_name": request.form.get("category_name"),
+            "meal_name": request.form.get("meal_name"),
+            "meal_description": request.form.get("meal_description"),
+            "is_shopping_required": is_shopping_required,
+            "created_by": session["user"]
+        }
+        mongo.db.meals.update_one({"_id": ObjectId(meal_id)}, {"$set":update})
+        flash("Meal Updated")
+        
     meal = mongo.db.meals.find_one({"_id": ObjectId(meal_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_meal.html", meal=meal , categories=categories)    
