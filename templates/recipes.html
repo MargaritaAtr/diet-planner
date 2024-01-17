@@ -1,0 +1,28 @@
+{% extends "base.html" %} 
+{% block content %}
+
+<h3 class="center-align white-text">Recipes</h3>
+
+<div class="row">
+    {% for recipe in recipes %}
+<div class="col s12 m6 xl4">
+    <div class="card grey lighten-3">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="{{ url_for('static', filename='images/sandwiches.jpg') }}">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{recipe.recipe_name}}<i class="fas fa-plus-square right"></i></span>
+      <p><a href="#"></a>{{recipe.category_name}}</p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">{{recipe.recipe_name}}<i class="fas fa-minus-square right"></i></span>
+      <p>Ingrediants: {{recipe.ingrediant}}</p>
+      <p>Instructions: {{recipe.instructions}}</p>
+    </div>
+  </div>
+</div>
+{% endfor %}
+</div> 
+
+        
+{% endblock %}

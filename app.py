@@ -147,7 +147,12 @@ def edit_meal(meal_id):
 def delete_meal(meal_id):
     mongo.db.meals.delete_one({"_id": ObjectId(meal_id)})
     flash("Meal Deleted")
-    return redirect(url_for("all_meals"))   
+    return redirect(url_for("all_meals"))  
+
+@app.route("/recipes")
+def recipes():
+    recipes = list(mongo.db.recipes.find())
+    return render_template("recipes.html", recipes=recipes)
 
 
 if __name__ == "__main__":
