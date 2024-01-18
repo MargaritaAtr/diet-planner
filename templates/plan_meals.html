@@ -30,13 +30,13 @@
       <div class="row">
           <div class="input-field col s12">
               <i class="fas prefix fa-folder-open"></i>
-              <select id="recipe_name" name="recipe_name" class="validate" required >
+              <select id="name" name="name" class="validate" required >
                 <option value="" disabled selected ></option>
                 {% for recipe in recipes %}
                 <option value="{{recipe.recipe_name}}">{{recipe.recipe_name}}</option>
                {% endfor %}
               </select>
-              <label for="recipe_name">Meal Name</label>
+              <label for="name">Meal Name</label>
           </div>
       </div>
       <!-- meal notes -->

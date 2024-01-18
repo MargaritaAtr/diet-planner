@@ -23,9 +23,7 @@
               </div>
             </div>
             <div class="collapsible-body white-text">
-                {% for recipe in recipes %}
-                    <p>{{ recipe.recipe_name }}</p>
-                {% endfor %}
+                    <p>{{ meal.name }}</p>
                 <p>{{ meal.meal_notes }}</p>
                 <p><em>by: {{ meal.created_by }}</em></p>
             </div>
