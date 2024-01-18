@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="center-align white-text">All Planned Meals</h3>
+    <h3 class="center-align white-text">Planned Meals</h3>
 
     <ul class="collapsible">
         {% for meal in meals %}
@@ -23,8 +23,10 @@
               </div>
             </div>
             <div class="collapsible-body white-text">
-                <strong>{{ meal.meal_name }}</strong>
-                <p>{{ meal.meal_description }}</p>
+                {% for recipe in recipes %}
+                    <p>{{ recipe.recipe_name }}</p>
+                {% endfor %}
+                <p>{{ meal.meal_notes }}</p>
                 <p><em>by: {{ meal.created_by }}</em></p>
             </div>
             

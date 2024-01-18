@@ -30,6 +30,7 @@
     <label for="category_name">Meal Category</label>
   </div>
 </div>
+
       <!-- Meal name -->
       <div class="row">
           <div class="input-field col s12">
@@ -39,15 +40,16 @@
               <label for="meal_name">Meal Name</label>
           </div>
       </div>
-      <!-- meal description -->
+      <!-- meal notes -->
       <div class="row">
           <div class="input-field col s12">
               <i class="fas fa-align-left prefix"></i>
               <textarea id="meal_description" name="meal_description" minlength="5"
-                  maxlength="200" class="materialize-textarea validate" required>{{meal.meal_description}}</textarea>
+                  maxlength="200" class="materialize-textarea validate" required>{{meal.meal_notes}}</textarea>
               <label for="meal_description">Meal Description</label>
           </div>
       </div>
+     
       <!-- is shopping required -->
 <div class="row">
   <div class="input-field col s12">

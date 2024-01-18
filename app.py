@@ -111,8 +111,8 @@ def plan_meals():
         meal = {
             "due_date": request.form.get("due_date"),
             "category_name": request.form.get("category_name"),
-            "meal_name": request.form.get("meal_name"),
-            "meal_description": request.form.get("meal_description"),
+            "name": request.form.get("name"),
+            "meal_notes": request.form.get("meal_notes"),
             "is_shopping_required": is_shopping_required,
             "created_by": session["user"]
         }
@@ -121,7 +121,8 @@ def plan_meals():
         return redirect(url_for("all_meals"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("plan_meals.html", categories=categories) 
+    recipes = mongo.db.recipes.find().sort("recipe_name", 1 )
+    return render_template("plan_meals.html", categories=categories, recipes=recipes) 
 
 
 @app.route("/edit_meal/<meal_id>", methods=["GET","POST"])
@@ -132,12 +133,12 @@ def edit_meal(meal_id):
             "due_date": request.form.get("due_date"),
             "category_name": request.form.get("category_name"),
             "meal_name": request.form.get("meal_name"),
-            "meal_description": request.form.get("meal_description"),
+            "meal_notes": request.form.get("meal_notes"),
             "is_shopping_required": is_shopping_required,
             "created_by": session["user"]
         }
         mongo.db.meals.update_one({"_id": ObjectId(meal_id)}, {"$set":update})
-        flash("Meal Updated")
+        return redirect(url_for("all_meals"))
         
     meal = mongo.db.meals.find_one({"_id": ObjectId(meal_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
@@ -161,8 +162,10 @@ def add_recipe():
             "recipe_name": request.form.get("recipe_name"),
             "category_name": request.form.get("category_name"),
             "image_url": request.form.get("image_url"),
-            "ingredients": request.form.get("ingredients"),
             "instructions": request.form.get("instructions"),
+            "ingredients": request.form.get("ingredients"),
+            "calories": request.form.get("calories"),
+            "cooking_time": request.form.get("cooking_time"),
             "created_by": session["user"]
         }
         mongo.db.recipes.insert_one(recipe)
@@ -182,6 +185,25 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
     return redirect(url_for("recipes"))  
 
+
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    if request.method == "POST":
+        edit_recipe = {   
+            "recipe_name": request.form.get("recipe_name"),
+            "category_name": request.form.get("category_name"),
+            "image_url": request.form.get("image_url"),
+            "ingredients": request.form.get("ingredients"),
+            "calories": request.form.get("calories"),
+            "cooking_time": request.form.get("cooking_time"),
+            "created_by": session["user"]
+        }
+        mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, {"$set":edit_recipe})
+        return redirect(url_for("recipes"))
+
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit_recipe.html", categories=categories, recipe=recipe) 
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
