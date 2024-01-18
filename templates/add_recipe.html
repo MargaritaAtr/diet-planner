@@ -15,10 +15,15 @@
             <!--Recipe Category-->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="recipe_category" name="recipe_category" type="text" class="validate" maxlength="50" required />
-                    <label for="recipe_category">Category Name</label>
-                </div> 
-        </div>   
+                  <select id="category_name" name="category_name" class="validate" required >
+                    <option value="" disabled selected ></option>
+                    {% for category in categories %}
+                    <option value="{{category.category_name}}">{{category.category_name}}</option>
+                   {% endfor %}
+                  </select>
+                  <label for="category_name">Meal Category</label>
+                </div>
+              </div>   
         <div class="row">
             <div class="input-field col s12">
                 <input id="recipe_ingredients" name="recipe_ingredients" type="text" class="validate" maxlength="50" required />
@@ -40,11 +45,14 @@
          <!--submit button-->
          <div class="row">
             <div class="col s12">
-                <button id="submit-recipe" class="btn waves-effect waves-light full-width green center " type="submit">
+                <button id="submit-recipe" class="btn-small purple accent-4center " type="submit">
                     Submit Recipe
                 </button>
+                    <a href="{{ url_for('back')}}" class="btn-small dark-blue right ">Back</a>
+               
             </div>
          </div>
+         
     </form>
 
 </div>
