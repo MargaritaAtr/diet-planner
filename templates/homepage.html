@@ -14,13 +14,19 @@
             </li>
             <li>
                 <img class="responsive-img"
-                    src="{{ url_for('static', filename='images/burger.jpg') }}" alt="">
+                    src="{{ url_for('static', filename='images/burger.jpg') }}" alt="burger ">
             </li>
             <li>
                 <img class="responsive-img"
-                    src="{{ url_for('static', filename='images/bowl.jpg') }}" alt="">
+                    src="{{ url_for('static', filename='images/bowl.jpg') }}" alt="bowl with soup">
             </li>
         </ul>
     </div>
-
+    <div class="col s12 center-align home-text">
+        {% if 'user' not in session %}
+    <h1 class="white-text">Want to eat healty , plan you your meals ahead</h1>
+        <a class="waves-effect waves-light btn-large pulse purple white-text" href="{{ url_for('login') }}">Login</a>
+        <p class="white-text flow-text">Not registered? <a class="red-text"href="{{ url_for('register') }}">Register</a></p>
+    </div>
+    {% endif %}
     {% endblock %}
