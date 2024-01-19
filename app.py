@@ -138,6 +138,7 @@ def edit_meal(meal_id):
             "created_by": session["user"]
         }
         mongo.db.meals.update_one({"_id": ObjectId(meal_id)}, {"$set":update})
+        flash("Meal successfully edited.")
         return redirect(url_for("all_meals"))
         
     meal = mongo.db.meals.find_one({"_id": ObjectId(meal_id)})
@@ -169,7 +170,7 @@ def add_recipe():
             "created_by": session["user"]
         }
         mongo.db.recipes.insert_one(recipe)
-        flash("Recipe Successfully added")
+        flash("Recipe Successfully added!")
         return redirect(url_for("recipes"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
@@ -183,6 +184,7 @@ def back():
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
+    flash("Recipe deleted")
     return redirect(url_for("recipes"))  
 
 
@@ -200,6 +202,7 @@ def edit_recipe(recipe_id):
             "created_by": session["user"]
         }
         mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, {"$set":edit_recipe})
+        flash("Recipe successfully edited")
         return redirect(url_for("recipes"))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
