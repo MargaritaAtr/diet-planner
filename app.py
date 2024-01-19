@@ -194,6 +194,7 @@ def edit_recipe(recipe_id):
             "category_name": request.form.get("category_name"),
             "image_url": request.form.get("image_url"),
             "ingredients": request.form.get("ingredients"),
+            "instructions": request.form.get("instructions"),
             "calories": request.form.get("calories"),
             "cooking_time": request.form.get("cooking_time"),
             "created_by": session["user"]
