@@ -7,7 +7,7 @@ body{
     font-family:'Bacasime Antique', serif ;
     font-size: 20px;
     display: flex;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     flex-direction: column;
     background-color: rgb(2, 21, 21);
 }
@@ -29,4 +29,20 @@ nav ul a {
 margin: 5px;
 
 }
+.meal-container{
+    margin-right: 20px;
+}
 
+/* For medium screen sizes from 500px wide & down  */
+@media screen and (max-width: 500px) {
+
+    .meal-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .date-container{
+        margin-top: 40px;
+    }
+  }
+  
