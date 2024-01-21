@@ -14,3 +14,14 @@ $(document).ready(function(){
     });
 });
 
+
+function confirmDelete() {
+  var result = window.confirm("Are you sure you want to delete?");
+  
+  if (result) {
+      // Call the function to delete the item
+      deleteItem();
+  } else {
+      back()
+  }
+}
