@@ -4,6 +4,7 @@ $(document).ready(function(){
     $('.collapsible').collapsible();
     $('select').formSelect();
     $(".tooltipped").tooltip();
+    $('.modal').modal();
     $(".datepicker").datepicker({
       format: "dddd mm/yy",
       yearRange: 3,
@@ -15,13 +16,3 @@ $(document).ready(function(){
 });
 
 
-function confirmDelete() {
-  var result = window.confirm("Are you sure you want to delete?");
-  
-  if (result) {
-      // Call the function to delete the item
-      deleteItem();
-  } else {
-      back()
-  }
-}

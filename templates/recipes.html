@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
-
 <h3 class="center-align white-text">Recipes</h3>
 <div>
     {% if session.user %}
-    <a href="{{ url_for('add_recipe', recipes=recipes)}}" class="btn-small purple accent-4 center-align">Add New recipe</a>
+    <a href="{{ url_for('add_recipe', recipes=recipes)}}" class="btn-small purple accent-4 center-align">Add New
+        recipe</a>
     {% endif %}
 </div>
 
@@ -19,19 +19,31 @@
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">{{recipe.category_name}}<i
                         class="fas fa-plus-square right"></i></span>
-                        {% if session.user %}
-                        <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn-small red center ">Delete</a>    
-                        {% endif %}
+                {% if session.user %}
+                 <!-- Modal Trigger -->
+                <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" data-target="modal1" class="btn-small red center modal-trigger ">Delete</a>
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal">
+                    <div class="modal-content red-text">
+                        <p>Are you sure you want to delete a recipe?</p>
                     </div>
+                    <div class="modal-footer">
+                        <a href="#!"
+                            class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+                        <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="modal-close waves-effect waves-green btn-flat">Delete</a>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
             <div class="card-reveal">
                 <span class="card-title red-text text-darken-4">{{recipe.recipe_name}}<i
-                        class="fas fa-minus-square right"></i></span>  
+                        class="fas fa-minus-square right"></i></span>
                 <p>Ingredients:{{recipe.ingredients}}</p>
                 <p>Instructions:{{recipe.instructions}}</p>
                 <p>Calories:{{recipe.calories}}</p>
                 <p>Cooking time:{{recipe.cooking_time}}</p>
                 {% if session.user %}
-                <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn-small blue center ">Edit</a>    
+                <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn-small blue center ">Edit</a>
                 {% endif %}
             </div>
 
