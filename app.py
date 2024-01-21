@@ -113,7 +113,7 @@ def plan_meals():
         meal = {
             "due_date": request.form.get("due_date"),
             "category_name": request.form.get("category_name"),
-            "name": request.form.get("name"),
+            "name": request.form.get("name").capitalize(),
             "meal_notes": request.form.get("meal_notes"),
             "is_shopping_required": is_shopping_required,
             "created_by": session["user"]
