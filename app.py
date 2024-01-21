@@ -1,6 +1,4 @@
 import os
-import tkinter as tk
-from tkinter import messagebox
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
