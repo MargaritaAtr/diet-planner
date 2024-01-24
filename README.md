@@ -113,3 +113,24 @@ The all images for this webisite have been taken from [Unsplash.](https://unspla
 ![Alt text](/templates/readme/images/navbar2.png)
 
 <br>
+
+## Homepage
+
+The homepage welcomes all users with a dynamic auto-slider showcasing four images in the background. For unregistered users, a conspicuous "Login" button flashes alongside an encouraging message, prompting them to register. Once a user is logged in, both the message and button seamlessly disappear, providing a tailored and streamlined experience.
+<br>
+
+![Alt text](/templates/readme/images/login_button.png)
+
+<br>
+
+![Alt text](/templates/readme/images/burger-home.png)
+
+<br>
+
+## Recipes page
+
+* The Recipe page is accessible to both users and non-users. Non-users have the privilege to view recipes exclusively.
+* For registered users, the functionality expands, allowing them to add new recipes, as well as edit and delete their own creations. However, the ability to modify and delete recipes is limited to one's own submissions, while other recipes are available for viewing only.
+
+![Alt text](/templates/readme/images/login_button.png)
+![Alt text](/templates/readme/images/burger-home.png)

@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-<h3 class="center-align white-text">Edit recipe</h3>
 
+{% if session.user%}
+<h3 class="center-align white-text">Edit recipe</h3>
 <div class="row">
 <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
     <div class="card-panel">
@@ -71,6 +72,5 @@
     </div>
 </form>
 </div>
-
-
+{% endif %}
 {% endblock %}

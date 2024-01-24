@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-
+{% if session.user%}
 <h3 class="center-align white-text">Plan my weeks meals</h3>
-
 <div class="row card-panel cream lighten-3">
   <form class="col s12" method="POST" action="{{ url_for('plan_meals') }}">
        <!-- due date picker -->
@@ -74,5 +73,5 @@
       </div>
   </form>
 </div>
-
+  {% endif %}
     {% endblock %}
