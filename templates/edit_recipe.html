@@ -30,13 +30,13 @@
               </div> 
         <div class="row">
             <div class="input-field col s12">
-                <input id="ingredients" name="ingredients" type="text" value="{{recipe.ingredients}}" class="validate" placeholder="Use a comma to separate items. E.g. 20g flour,.." maxlength="500" required />
+                <textarea id="ingredients" name="ingredients" class="materialize-textarea" type="text" class="validate" placeholder="Use a comma to separate items. E.g. 20g flour,.." maxlength="500" required>{{recipe.ingredients}}</textarea>
                 <label for="ingredients">Ingredients</label>
             </div>
         </div>   
         <div class="row">
             <div class="input-field col s12">
-                <input id="instructions" name="instructions" type="text" value="{{recipe.instructions}}" class="validate" placeholder="Use a number to separate the steps.E.g. 1 boil egg,..." required />
+                <textarea id="instructions" name="instructions" class="materialize-textarea" type="text" class="validate" placeholder="Use a number to separate the steps.E.g. 1 boil egg,..." required>{{ recipe.instructions }}</textarea>
                 <label for="instructions">Instructions</label>
             </div>
         </div>
@@ -54,7 +54,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="image_url" name="image_url" type="text" value="{{recipe.image_url}}" class="validate" maxlength="50" />
+                <input id="image_url" name="image_url" type="text" value="{{recipe.image_url}}" class="validate"/>
                 <label for="image_url">Image Url</label>
             </div>
         </div>
