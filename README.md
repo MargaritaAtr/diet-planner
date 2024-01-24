@@ -11,12 +11,11 @@ The website is live and the link can be fund [Here]()
 
 ## `Table of Contents`
 
-   ## [UX](#ux "UX")
-  + [Site Goal](#site-goal "Site Goal")
-  + [Visitor Goals](#visitor-goals "Visitors Goals")
+## [UX](#ux "UX")
+  + [Site Goals](#site-goals "Site Goals")
+  + [Visitors Goals](#visitors-goals "Visitor Goals")
   + [Audience](#audience "Audience")
  ## [Design](#design "Design")
-  + [Sketching](#sketching "Sketching")
   + [Colour scheme](#colourscheme "Colour scheme")
   + [Typography](#typography "Typography")
   + [Imagery](#imagery "Imagery") 
@@ -39,7 +38,7 @@ The website is live and the link can be fund [Here]()
 
 ## `Site Goals:` 
 
-This website allows users to plan their meal schedule based on available recipes and submit new recipes to the website for public use.
+The goal of a diet planner website is to provide users with tools and resources to help them plan and manage their dietary habits effectively.
 
 ## `Visitors Goals:` 
 
@@ -54,7 +53,35 @@ This website allows users to plan their meal schedule based on available recipes
 
 + I want to be able to login in to my account.
 + I want to be able to add/edit/delete my own recipes.
-+ I want to be able to plan my meals by dates by choosing a meal category and recipes       available on the database. 
++ I want to be able to add meal to meal planner. choosing a date, meal category and recipes available on the website. 
 + I want to be able to see other users' recipes and select them for my meal schedule.
++ I want to be able to delete and edit my meal plan.
++ I want to be able to flag if shooping is required.
++ I want to be able cancel  'recipes' edit form and return to all recipes page.
++ I want to be able cancel  'meal' edit form and return to planned meals page.
++ I want to be able to access and use the website on any device.
 
+### As website owner:
 
++ I want users to navigate easily from page to page using the navigation bar.
++ I want users to be able to submit, delete, and edit their recipes.
++  I want users to be able to plan their meals, choosing a date, meal category and recipes available on the website. 
++ I want the website to look responsive on any device.
+
+## `Audience:`
+
+The audience for a diet planner can be quite diverse and may include individuals with various health and wellness goals. Here are some potential audience groups for a diet planner: 
++ Individuals Looking to Lose Weight
++ Fitness Enthusiasts
++ Busy Professionals
++ Those with Dietary Restrictions
+
+# `Design`
+
+The website exudes a playful and vibrant ambience. The lively pictures of meals showcased on the homepage beckon non-users to explore the site, enticing them with a visual feast of recipes and encouraging them to register for an account.
+
+## `Colour scheme:`
+
+![Alt text](/templates/readme/images/colors.png)
+
+The chosen primary colors consist of a rich black and brown, complemented by a white background, creating a visually appealing contrast. Vibrant colors such as blue, purple, and green have been strategically employed for buttons, ensuring they are eye-catching and engaging.
