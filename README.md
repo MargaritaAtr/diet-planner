@@ -4,10 +4,10 @@ This is my Milestone Project 3 submission for Code Institute's Diploma in Web Ap
 
 Diet Planner is a website where you can plan your meal schedule using recipes available on the database and submit new recipes to the website. The website design is responsive and can be used on any device. 
 
-The website is live and the link can be fund [Here]()
+The website is live and the link can be fund [Here](https://diet-planner-b614f893e50e.herokuapp.com)
 <br>
 
-![Alt text](/assets/readme-images/response-img.jpeg)
+![Alt text](/templates/readme/images/responsive.png)
 
 ## `Table of Contents`
 
@@ -85,3 +85,31 @@ The website exudes a playful and vibrant ambience. The lively pictures of meals 
 ![Alt text](/templates/readme/images/colors.png)
 
 The chosen primary colors consist of a rich black and brown, complemented by a white background, creating a visually appealing contrast. Vibrant colors such as blue, purple, and green have been strategically employed for buttons, ensuring they are eye-catching and engaging.
+
+<br>
+
+## `Typography:`
+ Bacasime has been used for entire body.
+The icons used  for social media links are from [Font Awesome.](https://fontawesome.com/)
+<br>
+
+## `Imagery:`
+
+The all images for this webisite have been taken from [Unsplash.](https://unsplash.com)
+
+<br>
+
+# `Existing Features`
+
+## Navigation bar
+
+* Navigation bar provides various options whether the user is logged in as existing user in or not registered.
+* The Logo links to the hompage if you click on it.
+* The nav bar turns into a slide-out menu on smaller sizes devices.
+
+![Alt text](/templates/readme/images/navbar1.png)
+<br>
+
+![Alt text](/templates/readme/images/navbar2.png)
+
+<br>
