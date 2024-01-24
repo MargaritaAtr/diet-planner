@@ -46,7 +46,15 @@ This website allows users to plan their meal schedule based on available recipes
 ### As first time user:
 
 + I want to identify the purpose of the website immediately.
-+ I want to be able to register.
++ I want to be able to see all available recipes.
++ I want to be able to register for account.
 + I want to be able to view a website on any device.
+
+### As existing user:
+
++ I want to be able to login in to my account.
++ I want to be able to add/edit/delete my own recipes.
++ I want to be able to plan my meals by dates by choosing a meal category and recipes       available on the database. 
++ I want to be able to see other users' recipes and select them for my meal schedule.
 
 
