@@ -42,14 +42,14 @@
         <!--Recipe Calories--> 
         <div class="row">
             <div class="input-field col s12">
-                <input id="calories" name="calories" type="text" class="validate" placeholder="E.g. 100" maxlength="10" />
+                <input id="calories" name="calories" type="number" class="validate" placeholder="E.g. 100" maxlength="10" />
                 <label for="calories">Calories </label>
             </div>
         </div>
          <!--Cooking time--> 
         <div class="row">
             <div class="input-field col s12">
-                <input id="cooking_time" name="cooking_time" type="text" class="validate" placeholder="E.g. 20" maxlength="10" />
+                <input id="cooking_time" name="cooking_time" type="number" class="validate" placeholder="E.g. 20" maxlength="10" />
                 <label for="cooking_time">Cooking time(in mins)</label>
             </div>
         </div>
@@ -66,8 +66,7 @@
                 <button id="submit-recipe" class="btn-small purple accent-4center " type="submit">
                     Submit Recipe
                 </button>
-                    <a href="{{ url_for('back')}}" class="btn-small dark-blue right ">Back</a>
-               
+                    <a href="{{ url_for('back')}}" class="btn-small dark-blue right ">Back</a> 
             </div>
          </div>
          

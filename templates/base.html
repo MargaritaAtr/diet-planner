@@ -28,7 +28,7 @@
       <div class="nav-wrapper">
         <a href="{{ url_for('home')}}" class="brand-logo">Diet Planner</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger right" aria-label="hamburger side-nav button"><i
-            class="fas fa-bars"></i></a>
+          class="fas fa-bars"></i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="{{ url_for('home')}}">Home</a></li>
           <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
@@ -48,8 +48,8 @@
       <li><a href="{{ url_for('home')}}">Home</a></li>
       <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
       {% if session.user %}
-      <li><a href="{{ url_for('all_meals') }}">Planned meals</a></li>
       <li><a href="{{ url_for('plan_meals')}}">Plan my meals</a></li>
+      <li><a href="{{ url_for('all_meals') }}">Planned meals</a></li>
       <li><a href="{{ url_for('logout')}}">Log Out</a></li>
       {% else %}
       <li><a href="{{ url_for('login')}}">Log In</a></li>
@@ -75,9 +75,13 @@
     {% block content%}
     {% endblock %}
   </main>
+
+  <!-- Jquery Scripts -->
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
     crossorigin="anonymous"></script>
+    <!-- Materialize Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- Custom Scripts -->
   <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   {% block scripts %}
   {% endblock %}
