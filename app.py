@@ -1,7 +1,7 @@
 import os
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session, url_for, abort)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -140,8 +140,12 @@ def edit_meal(meal_id):
         mongo.db.meals.update_one({"_id": ObjectId(meal_id)}, {"$set":update})
         flash("Meal successfully edited.")
         return redirect(url_for("all_meals"))
-        
+    
     meal = mongo.db.meals.find_one({"_id": ObjectId(meal_id)})
+
+    if meal is None:
+        abort(404)
+           
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_meal.html", meal=meal , categories=categories)
 
@@ -185,7 +189,8 @@ def back():
 def delete_recipe(recipe_id):
     mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
     flash("Recipe deleted")
-    return redirect(url_for("recipes"))  
+    return redirect(url_for("recipes"))
+ 
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
@@ -204,11 +209,27 @@ def edit_recipe(recipe_id):
         mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, {"$set":edit_recipe})
         flash("Recipe successfully edited")
         return redirect(url_for("recipes"))
-
+    
+    
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    
+    if recipe is None:
+        abort(404)
+    
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_recipe.html", categories=categories, recipe=recipe)
 
+
+@app.errorhandler(404)
+def page_not_found(error):
+    #Handles 404 error, page not found
+    return render_template("404_error.html")
+
+
+@app.errorhandler(500)
+def internal_error(error):
+    #Handles 500 error, internal server error
+    return render_template("500_error.html"), 500
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
@@ -216,13 +237,3 @@ if __name__ == "__main__":
             debug=True)
     
 
-@app.errorhandler(404)
-def page_not_found(error):
-    #Handles 404 error, page not found
-    return render_template("404_error.html"), 404
-
-
-@app.errorhandler(500)
-def internal_error(error):
-    #Handles 500 error, internal server error
-    return render_template("500_error.html"), 500
