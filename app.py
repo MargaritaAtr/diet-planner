@@ -18,14 +18,14 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-
 @app.route("/")
 def home():
     return render_template("homepage.html")
 
+
 @app.route("/all_meals")
 def all_meals():
-    meals= list(mongo.db.meals.find())
+    meals = list(mongo.db.meals.find())
     return render_template("all_meals.html", meals=meals)
 
 
@@ -42,10 +42,10 @@ def register():
         # create new user
         register = {
             "username": request.form.get("username").lower(),
-            "fname" : request.form.get("fname").lower(),
-            "lname" : request.form.get("lname").lower(),
+            "fname": request.form.get("fname").lower(),
+            "lname": request.form.get("lname").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            
+
         }
         mongo.db.users.insert_one(register)
 
@@ -53,7 +53,6 @@ def register():
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
         return redirect(url_for("home", username=session["user"]))
-        
     return render_template("register.html")
 
 
@@ -68,10 +67,11 @@ def login():
             # ensure hashed password matches user input
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
-                        session["user"] = request.form.get("username").lower()
-                        flash("Welcome, {}".format(request.form.get("username")))
-                        return redirect(url_for(
-                         "all_meals", username=session["user"]))                
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(request.form.get
+                        ("username")))
+                return redirect(url_for(
+                         "all_meals", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -99,15 +99,16 @@ def my_meals(username):
 
 @app.route("/logout")
 def logout():
-     #clear all session cookies
-     session.clear()
-     return redirect(url_for("home"))
+    # clear all session cookies
+    session.clear()
+    return redirect(url_for("home"))
 
 
 @app.route("/plan_meals", methods=["GET", "POST"])
 def plan_meals():
     if request.method == "POST":
-        is_shopping_required = "on" if request.form.get("is_shopping_required") else "off"
+        is_shopping_required = "on" if request.form.get(
+            "is_shopping_required") else "off"
         meal = {
             "due_date": request.form.get("due_date"),
             "category_name": request.form.get("category_name"),
@@ -121,11 +122,12 @@ def plan_meals():
         return redirect(url_for("all_meals"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
-    recipes = mongo.db.recipes.find().sort("recipe_name", 1 )
-    return render_template("plan_meals.html", categories=categories, recipes=recipes) 
+    recipes = mongo.db.recipes.find().sort("recipe_name", 1)
+    return render_template("plan_meals.html", 
+                           categories=categories, recipes=recipes)
 
 
-@app.route("/edit_meal/<meal_id>", methods=["GET","POST"])
+@app.route("/edit_meal/<meal_id>", methods=["GET", "POST"])
 def edit_meal(meal_id):
     if request.method == "POST":
         is_shopping_required = "on" if request.form.get("is_shopping_required") else "off"
@@ -137,33 +139,35 @@ def edit_meal(meal_id):
             "is_shopping_required": is_shopping_required,
             "created_by": session["user"]
         }
-        mongo.db.meals.update_one({"_id": ObjectId(meal_id)}, {"$set":update})
+        mongo.db.meals.update_one({"_id": ObjectId(meal_id)}, {"$set": update})
         flash("Meal successfully edited.")
         return redirect(url_for("all_meals"))
-    
+
     meal = mongo.db.meals.find_one({"_id": ObjectId(meal_id)})
 
     if meal is None:
         abort(404)
-           
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_meal.html", meal=meal , categories=categories)
+    return render_template("edit_meal.html", meal=meal, categories=categories)
+
 
 @app.route("/delete_meal/<meal_id>")
 def delete_meal(meal_id):
     mongo.db.meals.delete_one({"_id": ObjectId(meal_id)})
     flash("Meal Deleted")
-    return redirect(url_for("all_meals"))  
+    return redirect(url_for("all_meals"))
+
 
 @app.route("/recipes")
 def recipes():
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
 
+
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
-        recipe = {   
+        recipe = {
             "recipe_name": request.form.get("recipe_name"),
             "category_name": request.form.get("category_name"),
             "image_url": request.form.get("image_url"),
@@ -178,7 +182,8 @@ def add_recipe():
         return redirect(url_for("recipes"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_recipe.html", categories=categories) 
+    return render_template("add_recipe.html", categories=categories)
+
 
 @app.route("/back")
 def back():
@@ -190,13 +195,12 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
     flash("Recipe deleted")
     return redirect(url_for("recipes"))
- 
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
-        edit_recipe = {   
+        edit_recipe = {
             "recipe_name": request.form.get("recipe_name"),
             "category_name": request.form.get("category_name"),
             "image_url": request.form.get("image_url"),
@@ -206,34 +210,33 @@ def edit_recipe(recipe_id):
             "cooking_time": request.form.get("cooking_time"),
             "created_by": session["user"]
         }
-        mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, {"$set":edit_recipe})
+        mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)},
+        {"$set": edit_recipe})
         flash("Recipe successfully edited")
         return redirect(url_for("recipes"))
-    
-    
+
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    
     if recipe is None:
         abort(404)
-    
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_recipe.html", categories=categories, recipe=recipe)
+    return render_template("edit_recipe.html", 
+                           categories=categories, recipe=recipe)
 
 
 @app.errorhandler(404)
 def page_not_found(error):
-    #Handles 404 error, page not found
+    # Handles 404 error, page not found
     return render_template("404_error.html")
 
 
 @app.errorhandler(500)
 def internal_error(error):
-    #Handles 500 error, internal server error
+    # Handles 500 error, internal server error
     return render_template("500_error.html"), 500
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
-    
 

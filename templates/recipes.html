@@ -39,13 +39,13 @@
             <div class="card-reveal">
                 <span class="card-title red-text text-darken-4">{{recipe.recipe_name}}<i
                         class="fas fa-minus-square right"></i></span>
-                <h5 class="blue-text darken-3">Ingredients:</h5>
+                <p class="blue-text darken-3">Ingredients:</p>
                 <div class="string-to-array">{{recipe.ingredients}}</div>
-                <h5 class="blue-text darken-3">Instructions:</h5>
+                <p class="blue-text darken-3">Instructions:<p>
                 <div>{{recipe.instructions}}</div>
-                <h5 class="blue-text darken-3">Calories:</h5>
+                <p class="blue-text darken-3">Calories:</p>
                 <div>{{recipe.calories}} kcal</div>
-                <h5 class="blue-text darken-3">Cooking time:</h5>
+                <p class="blue-text darken-3">Cooking time:</p>
                 <div>{{recipe.cooking_time}} mins</div>
                 {% if session.user|lower == recipe.created_by|lower %}
                 <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn-small blue center ">Edit</a>
