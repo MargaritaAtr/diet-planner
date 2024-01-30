@@ -1,77 +1,78 @@
 {% extends "base.html" %}
 {% block content %}
-{% if session.user%}
-<h3 class="center-align white-text">Plan my meals ahead</h3>
-<div class="row card-panel cream lighten-3">
-  <form class="col s12" method="POST" action="{{ url_for('plan_meals') }}">
-       <!-- due date picker -->
-       <div class="row">
-        <div class="input-field col s12">
+  {% if session.user %}
+    <h3 class="center-align white-text">Plan my meals ahead</h3>
+    <div class="row card-panel cream lighten-3">
+      <form class="col s12" method="POST" action="{{ url_for('plan_meals') }}" role="form">
+        <!-- Due date picker -->
+        <div class="row">
+          <div class="input-field col s12">
             <i class="fas fa-calendar-alt prefix"></i>
-            <input id="due_date" name="due_date" type="text" class="datepicker validate " required>
+            <input id="due_date" name="due_date" type="text" class="datepicker validate" required aria-required="true">
             <label for="due_date">Due Date</label>
+          </div>
         </div>
-    </div>
-      <!-- meal category selection -->
-<div class="row">
-  <div class="input-field col s12">
-    <i class="fas fa-folder-open prefix"></i>
-    <select id="category_name" name="category_name" class="validate" required >
-      <option value="" disabled selected ></option>
-      {% for category in categories %}
-      <option value="{{category.category_name}}">{{category.category_name}}</option>
-     {% endfor %}
-    </select>
-    <label for="category_name">Meal Category</label>
-  </div>
-</div>
-      <!-- Meal name -->
-      <div class="row">
+
+        <!-- Meal category selection -->
+        <div class="row">
           <div class="input-field col s12">
-              <i class="fas prefix fa-folder-open"></i>
-              <select id="name" name="name" class="validate" required >
-                <option value="" disabled selected ></option>
-                {% for recipe in recipes %}
+            <i class="fas fa-folder-open prefix"></i>
+            <select id="category_name" name="category_name" class="validate" required aria-required="true">
+              <option value="" disabled selected></option>
+              {% for category in categories %}
+                <option value="{{category.category_name}}">{{category.category_name}}</option>
+              {% endfor %}
+            </select>
+            <label for="category_name">Meal Category</label>
+          </div>
+        </div>
+
+        <!-- Meal name -->
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="fas prefix fa-folder-open"></i>
+            <select id="name" name="name" class="validate" required aria-required="true">
+              <option value="" disabled selected></option>
+              {% for recipe in recipes %}
                 <option value="{{recipe.recipe_name}}">{{recipe.recipe_name}}</option>
-               {% endfor %}
-              </select>
-              <label for="name">Meal Name</label>
+              {% endfor %}
+            </select>
+            <label for="name">Meal Name</label>
           </div>
-      </div>
-      <!-- meal notes -->
-      <div class="row">
+        </div>
+
+        <!-- Meal notes -->
+        <div class="row">
           <div class="input-field col s12">
-              <i class="fas fa-align-left prefix"></i>
-              <textarea id="meal_notes" name="meal_notes" minlength="5"
-                  maxlength="200" class="materialize-textarea validate" ></textarea>
-              <label for="meal_notes">Meal Notes</label>
+            <i class="fas fa-align-left prefix"></i>
+            <textarea id="meal_notes" name="meal_notes" minlength="5" maxlength="200" class="materialize-textarea validate" aria-describedby="mealNotesHelp"></textarea>
+            <label for="meal_notes">Meal Notes</label>
+            <span id="mealNotesHelp" class="helper-text" data-error="Please enter at least 5 characters." data-success="Valid"></span>
           </div>
-      </div>
-      <!-- is shopping required -->
-<div class="row">
-  <div class="input-field col s12">
-    <div class="switch">
-                  <i class="fas fa-exclamation-circle-small left prefix"></i>
-      <label for="is_shopping_required">
-                      <input type="checkbox" id="is_shopping_required" name="is_shopping_required">
-                      <span class="lever"></span>
-                      Is Shopping required
-                  </label>
-    </div>
-  </div>
-</div>
-      <!-- Cancel button -->
-      <div class="row">
+        </div>
+
+        <!-- Is shopping required -->
+        <div class="row">
+          <div class="input-field col s12">
+            <div class="switch">
+              <i class="fas fa-exclamation-circle-small left prefix"></i>
+              <label for="is_shopping_required">
+                <input type="checkbox" id="is_shopping_required" name="is_shopping_required" role="checkbox" aria-checked="false">
+                <span class="lever"></span>
+                Is Shopping required
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cancel and submit buttons -->
+        <div class="row">
           <div class="col s12 center-align">
-            <a href ="{{url_for('all_meals')}}" class="btn-small red text-shadow ">
-              Cancel <i class="fas fa-times-circle right"></i></a>
-              <!-- submit button -->
-              <button type="submit" class="btn-small grey darken-4 text-shadow">
-                  Add Meal <i class="fas fa-plus-square right"></i>
-              </button>
+            <a href ="{{url_for('all_meals')}}" class="btn-small red text-shadow">Cancel <i class="fas fa-times-circle right"></i></a>
+            <button type="submit" class="btn-small grey darken-4 text-shadow">Add Meal <i class="fas fa-plus-square right"></i></button>
           </div>
-      </div>
-  </form>
-</div>
+        </div>
+      </form>
+    </div>
   {% endif %}
-    {% endblock %}
+{% endblock %}

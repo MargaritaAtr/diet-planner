@@ -6,7 +6,7 @@ $(document).ready(function(){
     $(".tooltipped").tooltip();
     $('.modal').modal();
     $(".datepicker").datepicker({
-      format: "dddd mm/yy",
+      format: "dddd dd/mm",
       yearRange: 3,
       showClearBtn: true,
       i18n: {

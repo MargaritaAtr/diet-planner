@@ -239,10 +239,19 @@ The homepage welcomes all users with a dynamic auto-slider showcasing four image
 * Within this form, users encounter "Cancel" and "Edit" buttons for managing their edits. 
 * Additionally, if the user opts to delete the meal, a confirmation message "Are you sure you want to delete this meal?" prompts a decision.
 
+## 404 error page
 
+![Alt text](/static/readme/images/404error.png)
 
+* If page is not found , it directs to page with message "404 Page not found" .
 
+# `Future Features`
 
+* I want to incorporate a search button for finding recipes by name.
+* I want to introduce filter functionality on the Recipe page, allowing users to filter recipes by meal category, user submissions, or submission date.
+* I want to implement user account management features such as the ability to edit or delete an account, as well as a password reset option.
+
+# `Testing`
 
 
 

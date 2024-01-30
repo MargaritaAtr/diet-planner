@@ -216,6 +216,7 @@ def edit_recipe(recipe_id):
         return redirect(url_for("recipes"))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    print(recipe)
     if recipe is None:
         abort(404)
     categories = mongo.db.categories.find().sort("category_name", 1)
