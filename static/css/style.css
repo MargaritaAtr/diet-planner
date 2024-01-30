@@ -33,6 +33,11 @@ margin: 5px;
     margin-right: 20px;
 }
 
+.hidden-label{
+    display: none;
+
+}
+
 /* For medium screen sizes from 500px wide & down  */
 @media screen and (max-width: 500px) {
 

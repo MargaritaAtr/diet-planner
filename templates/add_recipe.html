@@ -9,7 +9,7 @@
         <!--Recipe Name-->
         <div class="row">
             <div class="input-field col s12">
-                <input id="recipe_name" name="recipe_name" type="text" class="validate" maxlength="50" required />
+                <input id="recipe_name" name="recipe_name" type="text" class="validate" maxlength="50" required>
                 <label for="recipe_name">Recipe Name</label>
             </div>
         </div>
@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="input-field col s12">
                   <select id="category_name" name="category_name" class="validate" required >
-                    <option value="" disabled selected ></option>
+                    <option value="" disabled selected class="hidden-label">Choose category</option>
                     {% for category in categories %}
                     <option value="{{category.category_name}}">{{category.category_name}}</option>
                    {% endfor %}
@@ -28,35 +28,35 @@
               <!--Recipe Ingredients-->
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="ingredients" name="ingredients" type="text" class="materialize-textarea"class="validate" placeholder="Use a comma to separate items. E.g. 20g flour,.." maxlength="500" required></textarea>
+                <textarea id="ingredients" name="ingredients" class="materialize-textarea validate" placeholder="Use a comma to separate items. E.g. 20g flour,.." maxlength="500" required></textarea>
                 <label for="ingredients">Ingredients</label>
             </div>
         </div>  
         <!--Recipe Instructions--> 
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="instructions" name="instructions" type="text" class="materialize-textarea" class="validate" placeholder="Use a number to separate the steps.E.g. 1 boil egg,..." required></textarea>
+                <textarea id="instructions" name="instructions" class="materialize-textarea validate" placeholder="Use a number to separate the steps.E.g. 1 boil egg,..." required></textarea>
                 <label for="instructions">Instructions</label>
             </div>
         </div>
         <!--Recipe Calories--> 
         <div class="row">
             <div class="input-field col s12">
-                <input id="calories" name="calories" type="number" class="validate" placeholder="E.g. 100" maxlength="10" />
+                <input id="calories" name="calories" type="number" class="validate" placeholder="E.g. 100">
                 <label for="calories">Calories </label>
             </div>
         </div>
          <!--Cooking time--> 
         <div class="row">
             <div class="input-field col s12">
-                <input id="cooking_time" name="cooking_time" type="number" class="validate" placeholder="E.g. 20" maxlength="10" />
+                <input id="cooking_time" name="cooking_time" type="number" class="validate" placeholder="E.g. 20">
                 <label for="cooking_time">Cooking time(in mins)</label>
             </div>
         </div>
         <!--Image url--> 
         <div class="row">
             <div class="input-field col s12">
-                <input id="image_url" name="image_url" type="text" class="validate"/>
+                <input id="image_url" name="image_url" type="text" class="validate">
                 <label for="image_url">Image Url</label>
             </div>
         </div>
@@ -68,10 +68,9 @@
                 </button>
                     <a href="{{ url_for('back')}}" class="btn-small dark-blue right ">Back</a> 
             </div>
+             </div>
          </div>
-         
     </form>
-
 </div>
 {% endif %}
 

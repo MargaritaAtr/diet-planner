@@ -21,14 +21,45 @@
 
 <br><br>
 
+## HTML Validation
+
+All pages pass HTML Validation with some minor warnings
+
+
+<details>
+<summary>Homepage</summary>
+<br>
+
+![Alt text](/docs/validation-images/homepage.png)
+</details>
+
+<details>
+<summary>Recipes</summary>
+<br>
+
+![Alt text](/docs/validation-images/recipes.png)
+</details>
+<details>
+<summary>Planned meals</summary>
+<br>
+
+![Alt text](/docs/validation-images/planned-meals.png)
+</details>
+</details>
+<details>
+<summary>Add recipe</summary>
+<br>
+
+![Alt text](/docs/validation-images/add-recipe.png)
+</details>
+
 
 ## CSS Validation
 
-All pages pass CSS Validation at [W3C CSS validation service](https://jigsaw.w3.org/css-validator/) with no errors or warnings.
+CSS file pass CSS Validation at [W3C CSS validation service](https://jigsaw.w3.org/css-validator/) with no errors or warnings.
 
 
 ![Alt text](/docs/validation-images/css-validation.png)
-
 
 ## JS Validation
 

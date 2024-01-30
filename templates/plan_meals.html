@@ -3,7 +3,7 @@
   {% if session.user %}
     <h3 class="center-align white-text">Plan my meals ahead</h3>
     <div class="row card-panel cream lighten-3">
-      <form class="col s12" method="POST" action="{{ url_for('plan_meals') }}" role="form">
+      <form class="col s12" method="POST" action="{{ url_for('plan_meals') }}">
         <!-- Due date picker -->
         <div class="row">
           <div class="input-field col s12">
@@ -57,7 +57,7 @@
             <div class="switch">
               <i class="fas fa-exclamation-circle-small left prefix"></i>
               <label for="is_shopping_required">
-                <input type="checkbox" id="is_shopping_required" name="is_shopping_required" role="checkbox" aria-checked="false">
+                <input type="checkbox" id="is_shopping_required" name="is_shopping_required">
                 <span class="lever"></span>
                 Is Shopping required
               </label>
