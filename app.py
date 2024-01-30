@@ -71,7 +71,7 @@ def login():
                 flash("Welcome, {}".format(request.form.get
                         ("username")))
                 return redirect(url_for(
-                         "all_meals", username=session["user"]))
+                         "recipes", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -118,7 +118,7 @@ def plan_meals():
             "created_by": session["user"]
         }
         mongo.db.meals.insert_one(meal)
-        flash("Meal Successfully added to your weekly plan")
+        flash("Meal Successfully added to your plan")
         return redirect(url_for("all_meals"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
