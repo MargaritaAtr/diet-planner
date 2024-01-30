@@ -3,6 +3,8 @@
 # Testing documentation for Diet Planner website.
 <br>
 
+![Alt text](/docs/readme/images/pancakes.png)
+
 # Contents
 
 * [Validation](#validation)
@@ -11,15 +13,17 @@
     * [JS Validation](#js-validation)
     * [CI Python Linter](#ci-python-linter)
     * [Lighthouse](#lighthouse)
-   (#wave-accessibility-checker)
 * [User Story Testing](#user-story-testing)
     * [General](#general)
     * [Logged Out](#logged-out)
-    * [Member User](#member-user)
+    * [User Logged In](#user-logged-in)
 * [Manual Testing](#manual-testing)
 * [Responsiveness](#responsiveness)
+* [Fixed Bugs](#fixed-bugs)
 
 <br><br>
+
+# Validation
 
 ## HTML Validation
 
@@ -183,7 +187,20 @@ The Python file successfully passed through the CI PEP8 linter without any warni
 
 <br><br>
 
+## User Logged In
 
+| User Story                                        | Feature                                                                    |
+| ------------------------------------------------- | -------------------------------------------------------------------------- |
+| I want to be able to view recipe page with all recipes and  available features for users. | Functions such as adding, editing, and deleting recipes are exclusive to registered users.|
+| I would like to view a meal schedule that already includes planned meals and be able to edit/delete them. | All meals displayed in table with edit and delete buttons. Edit button re-directs to edit form.|
+ | I want to be able add new recipe. | "Add new recipe" button displayed on recipe page and directs users to the corresponding form for adding a new recipe.|
+ | I want to be able to edit existing recipe.| "Edit " button displayed on recipe card and re-directs to the corresponding form for editing a recipe.|
+ |I want to be able to add meal to meal schedule, specifying a date, meal category and recipes available on the website. | The "Plan my meal" option is visibly featured in the navbar and redirects to the corresponding meal planning form.|
+| I want the ability to mark a meal as urgent if shopping is required.  | The "Tickle" option is provided on the meal planning form for this purpose.|
+| I would like to have the option to cancel actions such as deleting, adding, or editing from the respective forms.| The back and cancel buttons present in all forms and re-direct to previous page.|
+
+
+<br><br>
 
 ## Manual Testing
 
@@ -202,29 +219,29 @@ The Python file successfully passed through the CI PEP8 linter without any warni
 | Register Form - new user details.                     | Form submits adding new user and redirects to Homepage with Flash message "Registration Successful!                             | Pass.  |
 | Log In link on Register Form                          | Redirects to Log In page.                                                                                                | Pass.  |
 | Log Out Button.                                       | Logs user out, clears session cookies and redirects to Homepage.                                                         | Pass.  |
-| Add New Recipe Button.                                       | Redirect to Add new recipe page with empty form.                                                         | Pass.  |
-| Meal Category selection on recipe form.                                      | Select one optoion of meal categories.                                                         | Pass.  |
-|Submit empty form.                                     | Form does not submit. Recipe name/meal category/ingredients/instructions are required.                                                     | Pass.  |
+| Add New Recipe Button.                                       | Redirects to Add new recipe page with empty form.                                                         | Pass.  |
+| Meal Category selection on recipe form.                                      | Select one option of meal categories.                                                         | Pass.  |
+|Submit add recipe - empty form.                                     | Form does not submit. Recipe name/meal category/ingredients/instructions are required.                                                     | Pass.  |
 |Add recipe form - completed .                                   | Form submits, once press "Submit" button and save recipe in recipes page. Redirect to all recipes pages.                                                    | Pass.  |
-|Back button on add recipe form.                                   | Redirect to all recipes in case the user changed mind to add a new recipe.                                                  | Pass.  |
+|Back button on add recipe form.                                   | Redirects to all recipes in case the user changed mind to add a new recipe.                                                  | Pass.  |
 |Plus sign on recipe card.                                   | Card expands and dispalys Recipe name/Ingredients/Instructions/Calories/Cooking time and Edit button.                                                 | Pass.  |
 |Delete button on recipe card.                            | Modal pops up prompting user to confirm if he wants to delete or cancel                               | Pass.  | 
-|Delete on modal.                            | Delete recipe meal from database/website.                            | Pass.  |
-|Edit button on recipe card.                                   | Redirect to Edit recipe page with selected recipe details.                                                 | Pass.  |
-|Cancel button on edit recipe form .                                 | Redirect to Edit recipe page to all recipe page.                                                 | Pass.  |
-|Edit button on edit recipe form.                                  | Update recipe and redirect to recipe page with Flash message " Recipe successfully edited"                                                | Pass.  |
+|Delete on modal.                            | Deletes recipe meal from database/website.                            | Pass.  |
+|Edit button on recipe card.                                   | Redirects to Edit recipe page with selected recipe details.                                                 | Pass.  |
+|Cancel button on edit recipe form .                                 | Redirects to Edit recipe page to all recipe page.                                                 | Pass.  |
+|Edit button on edit recipe form.                                  | Updates recipe and redirect to recipe page with Flash message " Recipe successfully edited"                                                | Pass.  |
 |Plan meal form. - empty                              | Will not submit if empty. Due date/ meal category and meal name are required.                                              | Pass.  |
 |Due date picker on plan meal form.                            | When click on due date, calendar comes up with option select date, months, year.                                             | Pass.  |
 | Meal category on plan meal form.                             | Gives the options meal categories                                           | Pass.  |
 | Meal name on plan meal form.                             | Provides all recipes saved in database.                                         | Pass.  |
 |Is shopping required tickle.                            | When a user selects a shopping required , an attention sign should appear on the corresponding planned meal line on the Planned Meals page.                                    | Pass.  |                                                                                         
 |Plan meal - form completed.                            | Form submints and redirect to all planned meals with Flash message " "Meal Successfully added to your weekly plan"                                   | Pass.  | 
-|Edit button on planned meals.                            | Redirect to edit meal page with edit meal form. Form aleady completed with relevant fields of this meal.                                   | Pass.  | 
-|Cancel button on edit meal form.                            | Redirect to to all planned meals.                                 | Pass.  | 
-|Edit button on edit meal form.                            | Update the meal accordignly.                                | Pass.  | 
+|Edit button on planned meals.                            | Redirects to edit meal page with edit meal form. Form aleady completed with relevant fields of this meal.                                   | Pass.  | 
+|Cancel button on edit meal form.                            | Redirects to to all planned meals.                                 | Pass.  | 
+|Edit button on edit meal form.                            | Updates the meal accordignly.                                | Pass.  | 
 |Delete button on planned meals schedule.                            | Modal pops up prompting user to confirm if he wants to delete or cancel                               | Pass.  | 
-|Delete on modal.                            | Delete planned meal from database/website.                            | Pass.  | 
-|Cancel on modal.                            | Cancel action and returns to all planned meals schedule.                           | Pass.  | 
+|Delete on modal.                            | Deletes planned meal from database/website.                            | Pass.  | 
+|Cancel on modal.                            | Cancels action and returns to all planned meals schedule.                           | Pass.  | 
 |Type a non-existent page path.                          | Redirects to 404 page.                      | Pass.  | 
 
 ## Browser Compatibility
@@ -255,3 +272,9 @@ Responsivity tests were carried out using Google Chrome DevTools. Device screen 
 - Nest Hub Max
 
 I also personally tested the website on iPhone 10, iPad Pro 2nd Generation, Dell widescreen monitor. All pages looks good on all screen sizes.
+
+## Fixed Bugs
+
+* It appeared that there was an issue with the "Delete" functionality on the meal/recipe page. The current implementation, utilizing a Modal structure from Materialize.css, presents the confirmation modal when the "Delete" button is clicked. However, upon confirming the deletion, it consistently removed the first recipe/meal on the website, rather than the selected one. After persistent efforts and exploration, I have discovered that a crucial adjustment is needed in the href attribute of the trigger. Specifically, changing from href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" to href="#{{recipe._id}}". Additionally, instead of using id="modal1", utilizing id="{{recipe._id}}" is necessary. This modification is applicable across all meal pages as well.
+
+* During HTML testing, an error was identified indicating that the option element for the meal category cannot be without a label. In response, I have rectified this issue by adding a label to the respective option.

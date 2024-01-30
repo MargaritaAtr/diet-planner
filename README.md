@@ -252,8 +252,116 @@ The homepage welcomes all users with a dynamic auto-slider showcasing four image
 For testing please the [Testing](/testing.md) documentation.
 <br><br>
 
+# `Technologies Used`
+
+## Languages Used
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+
+- [CSS3](https://en.wikipedia.org/wiki/CSS)
+
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+
+# Frameworks Libraries and Programs
+
+- [Heroku](https://id.heroku.com/login)
+  - I utilized Heroku as the deployment source for this project.
+
+- [MongoDB](https://www.mongodb.com/)
+    - I used MongoDB for my non-relational database.
+
+- [Flask](https://flask.palletsprojects.com/en/2.2.x/templating/)
+  - Templating language I've used with Python to add logic to my html templates.
+
+- [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
+  - Templating language I've used with Python to add logic to my html templates.
+
+- [Materialize CSS](https://materializecss.com/)
+  - Front-end library with HTML, CSS and Javascript based componants. I used features including Nav bar, Cards, Buttons, Forms and Modal.
+
+- [jQuery](https://jquery.com/)
+  - I used jQuery to add functionality to MaterialiseCSS componants.
+
+- [Google Fonts](https://fonts.google.com/)
+  - Bacasime Anitique font imported from google fonts.
+  
+- [Font awesome](https://fontawesome.com/)
+  - I used icons from font awesome on buttons.
+
+- [Git](https://git-scm.com/)
+  - Git was used as a version control in the terminal.
+
+- [Github](https://github.com/)
+  - Github was used to create and store the project repository.
+
+- [Vscode](https://code.visualstudio.com//)
+  - Visual Studio Code was used to create my files and where I wrote the code.
+
+- [Miro](https://miro.com/)
+  - Miro was used to create Wireframes for the project during the initial planning stage.
+
+  - [Imageresizer](https://imageresizer.com/)
+  - Imagerisizer was used to resize images for a faster loading time.
+
+- [TinyPNG](https://tinypng.com/)
+  - TinyPNG was used to compress images for a faster loading time.
+
+- [Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/)
+  - Google Chrome's Dev Tools were used while building the project to test responsiveness and for debugging.
+
+- [Unsplash](https://unsplash.com/)
+  - Unsplash was used to get images for the website
+
+# Deployment
+
+## Creating a VScode Workspace
+
+The project was created in VScode using the Code Institute Gitpod Full Template using these steps:
+
+## Making a Local Clone
+
+1. Log in (or sign up) to GitHub.
+2. Select the relevant repository.
+3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+4. Open Visual code editor, select "clone repository" and then paste the link you copied from GitHub into  address bar. Enter.
+5. Select the location where you want to save a repository and  press Enter. 
+
+## Forking the GitHub Repository
+
+Forks are used to propose changes to someone else's project or to use someone else's project as a starting point for your own idea. By forking the GitHub Repository you make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository.
+
+To Fork a Github Repository:
+
+1. Log in to GitHub and go to the 
+2. Locate the Fork button in the top-right corner of the page, click Fork.
+3. You should now have a copy of the original repository in your GitHub account.
 
 
+Click [Here](https://docs.github.com/en/github-ae@latest/get-started/quickstart/fork-a-repo) for the GitHub quick start guide with images and more detailed explanations of the above process.
+
+## Creating an application with Heroku
+
+You will need to deploy the application using Heroku.
+
+1. Create a requirements.txt file by typing ``` pip3 freeze --local > requirements.txt ``` into the Gitpod CLI. Ensure this is added to your .gitignore file.
+2. Create a Procfile by typing ```echo web: python app.py > Procfile```. Open it and ensure it doesn't have a new line, as this can create errors. Ensure it starts with a capital P.
+3. Add and commit these files to Github.
+4. Go to [Heroku](https://dashboard.heroku.com/apps). Log in or create an account
+5. Click the 'New' button and click 'Create new app'.
+6. Enter a unique name for your project with no capital letters or spaces and select your region. Click 'Create App'.
+7. Inside your project, go to the Resources tab and create a Heroku Postgres Database
+8. Inside your project, go to the 'Settings' tab. Scroll down and click 'Reveal Config Vars'.
+9. Add in the following variables
+  - IP : 0.0.0.0
+  - PORT : 5000
+  - MONGO_DBNAME : Your MongoDB database name
+  - MONGO_URI : This can be found on MongoDB by going to Clusters, Connect, Connect to your application
+  - SECRET_KEY : Your secret key
+10. Deploy your project by going to the Deploy tab and choose 'Connect to Github'
+11. Find your repository name and select Connect.
+12. To connect your Heroku database, go to 'More' in the top right and select run console. Enter ```python3``` to access the python intepreter.
 
 
 
