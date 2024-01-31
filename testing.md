@@ -27,7 +27,7 @@
 
 ## HTML Validation
 
- The label attribute was missing in option element in all forms for meal categories. Once this has been corrected , all pages pass HTML Validation with some minor warnings to use h2-h6 elements.
+ The label attribute was missing in option element in all forms for meal categories. Also there were few errors, where the closed tagds were missing. Once this has been corrected , all pages pass HTML Validation with some minor warnings to use h2-h6 elements.
 
 ![Alt text](/docs/validation-images/errors-edit-meal.png)
 
@@ -172,7 +172,7 @@ The Python file successfully passed through the CI PEP8 linter without any warni
 
 | User Story                                                                                | Feature                                                                                                                                    |
 | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| I want to immediately identify the purpose of the site.                                   | Logo displaying app name and background images of homepage.                                                |
+| I want to immediately identify the purpose of the site.                                   | Logo displaying app name and background images of homepage show food.                                               |
 | I want navigation to be simple and intuitive.                                             | The navigation links follow established design norms, utilizing a right-aligned layout and a universally recognized hamburger icon for mobile devices. The displayed links vary depending on whether the user is logged in or not. |
 | I aim to access the website seamlessly on any device.                                        | The website achieves full responsiveness through the utilization of the Materialize framework's grid system.                                                               |
 | I want to be able to easily navigate to the homepage incase of broken link or site error. | Error pages such as 404 and 500 are presented for instances of invalid links or server errors.                                                                      |
@@ -212,7 +212,7 @@ The Python file successfully passed through the CI PEP8 linter without any warni
 | Login Form - empty.                                   | Will not submit if empty fields.                                                                                         | Pass.  |
 | Login Form - incorrect username.                      | Form submits but doesn't login, Flash message comes up " Incorrect Username and/or Password"                                                  | Pass.  |
 | Login Form - incorrect password.                      | Form submits but doesn't login, Flash message comes up " Incorrect Username and/or Password"reason.                                                   | Pass.  |
-| Login Form - correct details.                         | Form submits and redirects user Recipes page with Flash message "Welcome, (user name)                                                         | Pass.  |
+| Login Form - correct details.                         | Form submits and redirects user to Recipe page with Flash message "Welcome, (user name)"                                                         | Pass.  |
 | Register link on Log In Form.                         | Redirects to register page.                                                                                              | Pass.  |
 | Register Form - empty.                                | Will not submit if empty fields.                                                                                         | Pass.  |
 | Register Form - username exists.                      | Form submits but does not register user, Flash message comes up " Username already exists, try another name."                                 | Pass.  |
@@ -275,6 +275,6 @@ I also personally tested the website on iPhone 10, iPad Pro 2nd Generation, Dell
 
 ## Fixed Bugs
 
-* It appeared that there was an issue with the "Delete" functionality on the meal/recipe page. The current implementation, utilizing a Modal structure from Materialize.css, presents the confirmation modal when the "Delete" button is clicked. However, upon confirming the deletion, it consistently removed the first recipe/meal on the website, rather than the selected one. After persistent efforts and exploration, I have discovered that a crucial adjustment is needed in the href attribute of the trigger. Specifically, changing from href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" to href="#{{recipe._id}}". Additionally, instead of using id="modal1", utilizing id="{{recipe._id}}" is necessary. This modification is applicable across all meal pages as well.
+* It appeared that there was an issue with the "Delete" functionality on the meal/recipe page. The current implementation, utilizing a Modal structure from Materialize.css, presents the confirmation modal when the "Delete" button is clicked. However, upon confirming the deletion, it consistently removed the first recipe/meal on the website, rather than the selected one. After persistent efforts and exploration, I have discovered that a crucial adjustment is needed in the href attribute of the trigger. Specifically, changing from href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" to href="#{{recipe._id}}". Additionally, instead of using id="modal1", utilizing id="{{recipe._id}}" is necessary. This modification is applicable across all meal page as well.
 
 * During HTML testing, an error was identified indicating that the option element for the meal category cannot be without a label. In response, I have rectified this issue by adding a label to the respective option.

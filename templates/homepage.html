@@ -1,32 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-    <div class="slider fullscreen responsive-img">
-        <ul class="slides">
-            <li>
-                <img class="responsive-img"
-                    src="{{ url_for('static', filename='images/radish.jpg') }}" alt="the variety of the fruits">
-            </li>
-            <li>
-                <img class="responsive-img"
-                    src="{{ url_for('static', filename='images/pancakes.jpg') }}" alt="pancakes">
-            </li>
-            <li>
-                <img class="responsive-img"
-                    src="{{ url_for('static', filename='images/burger.jpg') }}" alt="burger ">
-            </li>
-            <li>
-                <img class="responsive-img"
-                    src="{{ url_for('static', filename='images/bowl.jpg') }}" alt="bowl with soup">
-            </li>
-        </ul>
-    </div>
-    {% if 'user' not in session %}
-    <div class="col s12 center-align homepage-text">
+<div class="slider fullscreen responsive-img">
+    <ul class="slides">
+        <li>
+            <img class="responsive-img" src="{{ url_for('static', filename='images/radish.jpg') }}"
+                alt="the variety of the fruits">
+        </li>
+        <li>
+            <img class="responsive-img" src="{{ url_for('static', filename='images/pancakes.jpg') }}" alt="pancakes">
+        </li>
+        <li>
+            <img class="responsive-img" src="{{ url_for('static', filename='images/burger.jpg') }}" alt="burger ">
+        </li>
+        <li>
+            <img class="responsive-img" src="{{ url_for('static', filename='images/bowl.jpg') }}" alt="bowl with soup">
+        </li>
+    </ul>
+</div>
+{% if 'user' not in session %}
+<div class="col s12 center-align homepage-text">
     <h1 class="white-text">Want to eat healty , plan you your meals ahead</h1>
-        <a class="waves-effect waves-light btn-large pulse purple white-text" href="{{ url_for('login') }}">Login</a>
-        <p class="white-text flow-text">Not registered? <a class="red-text flow-text"href="{{ url_for('register') }}">Register</a></p>
-    </div>
-    {% endif %}
-    {% endblock %}
+    <a class="waves-effect waves-light btn-large pulse purple white-text" href="{{ url_for('login') }}">Login</a>
+    <p class="white-text flow-text">Not registered? <a class="red-text flow-text"
+            href="{{ url_for('register') }}">Register</a></p>
+</div>
+{% endif %}
+{% endblock %}

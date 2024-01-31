@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-
 <h3 class="center-align white-text">Recipes</h3>
 <div>
     {% if session.user %}
@@ -15,23 +14,27 @@
     <div class="col s12 m4 ">
         <div class="card grey lighten-3">
             <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="{{ url_for('static', filename='images/sandwiches.jpg') }}" alt="image of sandwiches">
+                <img class="activator" src="{{ url_for('static', filename='images/sandwiches.jpg') }}"
+                    alt="image of sandwiches">
             </div>
             <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">{{recipe.category_name}}<i class="fas fa-plus-square right"></i></span>
-                 {% if session.user|lower == recipe.created_by|lower %}
-                    <!-- Modal Trigger -->
-                    <a href="#{{recipe._id}}" class="btn-small red  modal-trigger">Delete</a>
-                    <!-- Modal Structure -->
-                    <div id="{{recipe._id}}" class="modal">
-                        <div class="modal-content red-text">
-                            <p>Are you sure you want to delete a recipe?</p>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="{{url_for('recipes')}}" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-                            <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="modal-close waves-effect waves-green btn-flat">Delete</a>
-                        </div>
+                <span class="card-title activator grey-text text-darken-4">{{recipe.category_name}}<i
+                        class="fas fa-plus-square right"></i></span>
+                {% if session.user|lower == recipe.created_by|lower %}
+                <!-- Modal Trigger -->
+                <a href="#{{recipe._id}}" class="btn-small red  modal-trigger">Delete</a>
+                <!-- Modal Structure -->
+                <div id="{{recipe._id}}" class="modal">
+                    <div class="modal-content red-text">
+                        <p>Are you sure you want to delete a recipe?</p>
                     </div>
+                    <div class="modal-footer">
+                        <a href="{{url_for('recipes')}}"
+                            class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+                        <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}"
+                            class="modal-close waves-effect waves-green btn-flat">Delete</a>
+                    </div>
+                </div>
                 {% endif %}
             </div>
             <div class="card-reveal">
@@ -40,14 +43,15 @@
                 <p class="blue-text darken-3">Ingredients:</p>
                 <div class="string-to-array">{{recipe.ingredients}}</div>
                 <p class="blue-text darken-3">Instructions:<p>
-                <div>{{recipe.instructions}}</div>
-                <p class="blue-text darken-3">Calories:</p>
-                <div>{{recipe.calories}} kcal</div>
-                <p class="blue-text darken-3">Cooking time:</p>
-                <div>{{recipe.cooking_time}} mins</div>
-                {% if session.user|lower == recipe.created_by|lower %}
-                <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn-small blue center ">Edit</a>
-                {% endif %}
+                        <div>{{recipe.instructions}}</div>
+                        <p class="blue-text darken-3">Calories:</p>
+                        <div>{{recipe.calories}} kcal</div>
+                        <p class="blue-text darken-3">Cooking time:</p>
+                        <div>{{recipe.cooking_time}} mins</div>
+                        {% if session.user|lower == recipe.created_by|lower %}
+                        <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}"
+                            class="btn-small blue center ">Edit</a>
+                        {% endif %}
             </div>
 
         </div>
